@@ -1,7 +1,10 @@
 <x-guest-layout>
     <x-jet-authentication-card>
+        <div class=''>
+            <h1 class='text-center'> Bookmarker app </h1>
+        </div>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -25,7 +28,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <x-jet-button style='background-color:rgb(16 185 129)'>
                     {{ __('Email Password Reset Link') }}
                 </x-jet-button>
             </div>
