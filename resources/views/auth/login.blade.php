@@ -1,7 +1,13 @@
 <x-guest-layout>
+
+
+
     <x-jet-authentication-card>
+        <div class=''>
+            <h1 class='text-center'> Bookmarker app </h1>
+        </div>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -11,6 +17,7 @@
                 {{ session('status') }}
             </div>
         @endif
+        
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -39,7 +46,7 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4" style='background-color:rgb(16 185 129)'>
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
