@@ -21,13 +21,17 @@
             <p> List 1 </p>
             <p> List 2 </p>
             <p> List 3 </p>
+
+            <!-- make a listr -->
+            <x-jet-button style='max-width: 100%;'> maak een list aan </x-jet-button>
         </div>
 
     </div>
 
     <!-- bookmarker list -->
     <div style="border: solid; black 1px; margin-left: 25%; margin-right: 25%; min-height: 700px">
-        <h1 class='text-center text-2xl' style='border: solid black 1px'> zoekbalk </h1>
+
+        <input class="text-center text-2x1" style='border: solid black 1px; width: 100%' placeholder="zoekbalk" type="text" >
 
         <!-- bookmarker item -->
         <div style='border: solid grey 4px; padding: 10px; margin: 2px; '>
