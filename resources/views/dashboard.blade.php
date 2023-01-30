@@ -67,7 +67,7 @@
             <p> List 3 </p>
 
             <!-- make a listr -->
-            <x-jet-button style='max-width: 100%;'> maak een list aan </x-jet-button>
+            <x-jet-button id='addListBtn' style='max-width: 100%;'> add list</x-jet-button>
         </div>
 
     </div>
@@ -92,7 +92,7 @@
 
         <!-- make bookmarker -->
         <div class="h-56 grid grid-cols-3 gap-4 content-center">
-            <x-jet-button id="myBtn" style='max-width: 20%;'> maak een Bookmarker aan </x-jet-button>
+            <x-jet-button id="addBookmarkerBtn" style='max-width: 20%;'> maak een Bookmarker aan </x-jet-button>
         </div>
 
         
@@ -100,7 +100,7 @@
             <body>    
             
             <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <div id="addBookmarker" class="modal">
             
               <!-- Modal content -->
               <div class="modal-content">
@@ -139,31 +139,77 @@
               </div>
             
             </div>
+
+            <div id="addList" class="modal">
+            
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h1>Make a list</h1>
+                  <form method="POST" action="/dashboard" class="grid place-items-center ">
+                      @csrf
+                        <div class="md:flex md:items-center mb-6">
+                          <div class="md:w-1/3">
+                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-Bookmarker-name">
+                              list name
+                            </label>
+                          </div>
+                          <div class="md:w-2/3">
+                            <input name='name' class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text">
+                          </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                          <div class="md:w-1/3">
+                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                              list description
+                            </label>
+                          </div>
+                          <div class="md:w-2/3">
+                            <input name='description' class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text">
+                          </div>
+                        </div>
+                
+                        <div class="md:flex md:items-center">
+                          <div class="md:w-1/3"></div>
+                          <div class="md:w-2/3">
+                              <x-jet-button style='max-width: 20%;'> add </x-jet-button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+              
+              </div>
             
             <script>
             // Get the modal
-            var modal = document.getElementById("myModal");
+            var bookmarkermodal = document.getElementById("addBookmarker");
+            var listmodal = document.getElementById('addList')
             
             // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
+            var bookmarkerBtn = document.getElementById("addBookmarkerBtn");
+            var listBtn = document.getElementById("addListBtn")
             
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
             
             // When the user clicks the button, open the modal 
-            btn.onclick = function() {
-              modal.style.display = "block";
+            bookmarkerBtn.onclick = function() {
+              bookmarkermodal.style.display = "block";
+            }
+            listBtn.onclick = function() {
+              listmodal.style.display = "block";
             }
             
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
-              modal.style.display = "none";
+              bookmarkermodal.style.display = "none";
             }
+            
             
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
               if (event.target == modal) {
-                modal.style.display = "none";
+                bookmarkermodal.style.display = "none";
               }
             }
             </script>
